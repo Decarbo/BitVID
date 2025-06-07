@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { SearchVideo } from '../constant/Const';
 import { useQuery } from '@tanstack/react-query';
 import VideoCard from './VideoCard';
+import VideoCardSkeleton from './VideoCardSkeleton';
 
 const SearchReasult = () => {
 	const { querysearch } = useParams();
@@ -19,7 +20,16 @@ const SearchReasult = () => {
 		queryFn: () => handleSearch(querysearch),
 		enabled: !!querysearch,
 	});
-	if (isLoading) return <div>Loading...</div>;
+	if (isLoading)
+		return (
+			<div>
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+					{[...Array(6)].map((_, i) => (
+						<VideoCardSkeleton key={i} />
+					))}
+				</div>
+			</div>
+		);
 	if (isError) return <div>Error fetching search results.</div>;
 	console.log(data);
 	return (
@@ -28,7 +38,6 @@ const SearchReasult = () => {
 				<VideoCard
 					key={video.id.videoId}
 					info={video}
-
 				/>
 			))}
 		</div>

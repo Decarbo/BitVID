@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import VideoCardSkeleton from './VideoCardSkeleton';
 
-const RelatedVideo = ({  channelTitle = '' }) => {
+const RelatedVideo = ({ channelTitle = '' }) => {
 	const [relatedVideos, setRelatedVideos] = useState([]);
 	const [loading, setLoading] = useState(true);
-// console.log(tags)
-console.log(channelTitle)
+	// console.log(tags)
+	console.log(channelTitle);
 	// Compose query from tags or fallback to channelTitle
-	const query =  channelTitle || '';
+	const query = channelTitle || '';
 
 	useEffect(() => {
 		// If no query, no API call needed
@@ -39,7 +40,13 @@ console.log(channelTitle)
 			<h2 className="text-lg font-semibold mb-2">Related Videos</h2>
 
 			{loading ? (
-				<p className="text-gray-400 italic">Loading related videos...</p>
+				<p className="text-gray-400 italic">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+						{[...Array(6)].map((_, i) => (
+							<VideoCardSkeleton key={i} />
+						))}
+					</div>
+				</p>
 			) : relatedVideos.length === 0 ? (
 				<p className="text-gray-400 italic">No related videos found.</p>
 			) : (

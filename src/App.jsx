@@ -30,6 +30,10 @@ function App() {
 									element={<Main />}
 								/>
 								<Route
+									path="/explore"
+									element={<PopularVideos />}
+								/>
+								<Route
 									path="/category/:categoryId"
 									element={<PopularVideos />}
 								/>

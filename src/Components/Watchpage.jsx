@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { VideoInfo } from '../constant/Const';
 import RelatedVideo from './RelatedVideo';
+import VideoCardSkeleton from './VideoCardSkeleton';
 
 const Watchpage = () => {
 	const [videodata, setVideodata] = useState([]);
@@ -59,10 +60,16 @@ const Watchpage = () => {
 					{/* <p className="mt-2 text-gray-700">{videodata.statistics.tags}</p> */}
 				</div>
 			) : (
-				<p className="text-gray-500">Loading video info...</p>
+				<p className="text-gray-500">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+						{[...Array(6)].map((_, i) => (
+							<VideoCardSkeleton key={i} />
+						))}
+					</div>
+				</p>
 			)}
 			<div className="my-4">
-				<p className='text-[#ff0000]'>
+				<p className="text-[#ff0000]">
 					Need more Data go to{' '}
 					<strong className="text-blue-500">
 						<a
@@ -79,8 +86,6 @@ const Watchpage = () => {
 				tags={videodata?.tags || []}
 				channelId={videodata?.channelId}
 				channelTitle={videodata?.title}
-
-
 			/>
 		</div>
 	);

@@ -2,11 +2,10 @@ import { Youtubeapi } from '../constant/Const';
 import VideoCard from './VideoCard';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-
+import VideoCardSkeleton from './VideoCardSkeleton';
 
 const fetchPopularVideos = async (categoryId) => {
 	console.log('📡 Fetching Popular Videos API...');
-
 
 	let url = Youtubeapi;
 	if (categoryId && categoryId !== '0') {
@@ -40,11 +39,20 @@ const PopularVideos = () => {
 		refetchOnWindowFocus: false,
 	});
 
-	if (isLoading) return <div>Loading...</div>;
+	if (isLoading)
+		return (
+			<div>
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+					{[...Array(6)].map((_, i) => (
+						<VideoCardSkeleton key={i} />
+					))}
+				</div>
+			</div>
+		);
 	if (isError) return <div className="text-red-500">❌ Failed to load videos: {error.message}</div>;
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
 			{videos?.map((video) => (
 				<div key={video.id}>
 					<VideoCard info={video} />
