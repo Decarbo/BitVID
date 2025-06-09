@@ -4,8 +4,8 @@ import HeroSection from './Hero';
 const Main = () => {
 	return (
 		<div className=''>
-			{/* <HeroSection/> */}
-			<PopularVideos />
+			<HeroSection/>
+			{/* <PopularVideos /> */}
 
 		</div>
 	);

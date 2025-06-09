@@ -34,9 +34,9 @@ const Navbar = () => {
 							to={`/category/${item.categoryId}`}>
 							<li
 								className={`flex items-center gap-4 px-2 py-2  my-1 rounded cursor-pointer
-									${isActive ? 'bg-gray-900 text-white' : 'hover:bg-zinc-800'}
+									${isActive ? 'bg-gray-900 text-indigo-500' : 'hover:bg-zinc-800'}
 								`}>
-								<span className={isActive ? 'text-white' : 'text-gray-400'}>{item.icon}</span>
+								<span className={isActive ? 'text-indigo-500' : 'text-gray-400'}>{item.icon}</span>
 								<span>{item.label}</span>
 							</li>
 						</Link>

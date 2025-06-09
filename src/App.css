@@ -4,16 +4,24 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'font1', sans-serif;
 }
 ::-webkit-scrollbar{
-  width: 4px;
+  width: 6px;
   background-color: #000;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb{
-  background-color: #ff0000;
+  background-color: #615FFF;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover{
   background-color: #fff;
+}
+
+
+@font-face {
+  font-family: 'font1';
+  src: url('../rajdhani-700.woff2') format('woff2');
+
 }

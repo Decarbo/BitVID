@@ -4,7 +4,6 @@ import ChannelVideos from './ChannelVideos';
 // import ChannelVideos from './ChannelVideos';
 import VideoCardSkeleton from './VideoCardSkeleton';
 
-
 const ChannelDetail = () => {
 	const { channelId } = useParams();
 	const [channelInfo, setChannelInfo] = useState(null);
@@ -25,7 +24,7 @@ const ChannelDetail = () => {
 		return (
 			<div className="p-4 text-white">
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
-					{[...Array(6)].map((_, i) => (
+					{[...Array(12)].map((_, i) => (
 						<VideoCardSkeleton key={i} />
 					))}
 				</div>

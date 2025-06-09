@@ -6,7 +6,7 @@ const VideoCard = ({ info }) => {
 	const { id } = useParams();
 	if (!info || !info.snippet) return null;
 
-	console.log(info.id.videoId);
+	console.log(info?.id?.videoId);
 	const { snippet, statistics } = info;
 	const { title, channelTitle, publishedAt, thumbnails } = snippet;
 	// console.log(snippet);
