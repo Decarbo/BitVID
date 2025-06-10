@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import './App.css';
 import Header from './Components/Header';
+import BitVIDLoader from './Components/BitVIDLoader';
 const Body = React.lazy(() => import('./Components/Body'));
 
 const Main = React.lazy(() => import('./Components/Main'));
@@ -14,7 +15,12 @@ const SearchReasult = React.lazy(() => import('./Components/SearchReasult'));
 
 function App() {
 	return (
-		<React.Suspense fallback={<div>Loading...</div>}>
+		<React.Suspense
+			fallback={
+				<div>
+					<BitVIDLoader />
+				</div>
+			}>
 			<div className="h-screen flex flex-col bg-gray-950 text-white">
 				<Router>
 					<Header />
@@ -35,6 +41,10 @@ function App() {
 									<Route
 										path="/explore"
 										element={<PopularVideos />}
+									/>
+									<Route
+										path="/bbb"
+										element={<BitVIDLoader />}
 									/>
 									<Route
 										path="/category/:categoryId"

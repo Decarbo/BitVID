@@ -52,23 +52,23 @@ const RelatedVideo = ({ channelTitle }) => {
 			) : (
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 					{allVideos.map((video, index) => {
-						const videoId = video.id?.videoId || video.id;
+						const videoId = video?.id?.videoId || video?.id;
 						const isLast = index === allVideos.length - 1;
 
 						return (
 							<a
-								key={video.etag || `${videoId}-${index}`}
+								key={video?.etag || `${videoId}-${index}`}
 								ref={isLast ? lastVideoRef : null}
 								href={`/watch?v=${videoId}`}
 								className="flex gap-2 p-2 rounded bg-gray-800">
 								<img
-									src={video.snippet?.thumbnails?.default?.url}
-									alt={video.snippet?.title}
+									src={video?.snippet?.thumbnails?.default?.url}
+									alt={video?.snippet?.title}
 									className="aspect-video rounded object-cover"
 								/>
 								<div className="text-white overflow-hidden">
-									<p className="text-sm font-medium line-clamp-2">{video.snippet?.title}</p>
-									<p className="text-xs">{video.snippet?.channelTitle}</p>
+									<p className="text-sm font-medium line-clamp-2">{video?.snippet?.title}</p>
+									<p className="text-xs">{video?.snippet?.channelTitle}</p>
 								</div>
 							</a>
 						);
