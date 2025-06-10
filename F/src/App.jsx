@@ -42,10 +42,7 @@ function App() {
 										path="/explore"
 										element={<PopularVideos />}
 									/>
-									<Route
-										path="/bbb"
-										element={<BitVIDLoader />}
-									/>
+									
 									<Route
 										path="/category/:categoryId"
 										element={<PopularVideos />}

@@ -37,7 +37,7 @@ const BitVIDLoader = () => {
 				}}
 				className="mt-6"
 			>
-				<Loader2 className="w-10 h-10 animate-spin text-red-600" />
+				<Loader2 className="w-10 h-10 animate-spin text-indigo-500" />
 			</motion.div>
 		</div>
 	);
