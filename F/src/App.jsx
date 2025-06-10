@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import './App.css';
+import Header from './Components/Header';
 const Body = React.lazy(() => import('./Components/Body'));
-const Header = React.lazy(() => import('./Components/Header'));
+
 const Main = React.lazy(() => import('./Components/Main'));
+
+const PopularVideos = React.lazy(() => import('./Components/PopularVideos'));
 const Navbar = React.lazy(() => import('./Components/Navbar'));
 const Watchpage = React.lazy(() => import('./Components/Watchpage'));
 const ChannelDetail = React.lazy(() => import('./Components/ChannelDetail'));
-const PopularVideos = React.lazy(() => import('./Components/PopularVideos'));
 const SearchReasult = React.lazy(() => import('./Components/SearchReasult'));
-
 
 function App() {
 	return (
